@@ -1,0 +1,54 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Guessing Game
+    link(rel="stylesheet", href="style.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css")
+  body
+    #app
+      #game-container(v-if="currentPage === 'game'")
+        h1 Guessing Game
+        p {{ gameStatus }}
+        input(type="number", v-model="guess", placeholder="Enter your guess")
+        button(@click="submitGuess") Submit
+        p.success(v-if="guessSubmitted") Your guess has been submitted.
+        h2.logged-in-as Logged in as: {{ username }}
+
+      #result-container(v-if="currentPage === 'result'")
+        h1 {{ gameResult }}
+        p(v-if="otherUsername") You guessed {{ yourGuess }}, but the other user ({{ otherUsername }}) guessed {{ otherGuess }}.
+        p {{ result }}
+        h2.logged-in-as Logged in as: {{ username }}
+
+      #admin-container(v-if="currentPage === 'admin'")
+        h1 Admin Panel
+        table(v-if="adminUsers")
+          thead
+            tr
+              th ID
+              th Username
+              th Password
+              th Role
+          tbody
+            tr(v-for="user in adminUsers")
+              td {{ user.id }}
+              td {{ user.username }}
+              td {{ user.password }}
+              td {{ user.role }}
+        p(v-else) Loading...
+        button.back-button(@click="backToLogin") Back
+        p.logged-in-as Logged in as: admin
+
+      #weather-time-container
+        p#city {{ city }}
+        p#weather-icon-description
+          i(:class="weatherIcon") {{ weatherDescription }}
+        p#weather {{ weatherCelsius }}°C
+        p#time {{ formattedTime }}
+        p#date {{ formattedDate }}
+
+    script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
+    script(src="/socket.io/socket.io.js")
+    script(src="script.js")

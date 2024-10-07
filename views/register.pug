@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Guessing Game
+    link(rel="stylesheet", href="style.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css")
+  body
+    #app
+      #register-container(v-if="currentPage === 'register'")
+        h1 Register - Create an account
+        input(type="text", v-model="username", placeholder="Username")
+        input(type="password", v-model="password", placeholder="Password")
+        button(@click="register") Register
+        p.error(v-if="registrationError") {{ registrationError }}
+        p.success(v-if="registrationMessage") {{ registrationMessage }}
+        button(@click="switchToLogin") Switch to Login
+
+      #weather-time-container
+        p#city {{ city }}
+        p#weather-icon-description
+          i(:class="weatherIcon") {{ weatherDescription }}
+        p#weather {{ weatherCelsius }}°C
+        p#time {{ formattedTime }}
+        p#date {{ formattedDate }}
+
+    script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
+    script(src="/socket.io/socket.io.js")
+    script(src="script.js")

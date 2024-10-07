@@ -1,0 +1,21 @@
+{
+  "name": "comp-2406-final-project",
+  "version": "1.0.0",
+  "description": "This is the final project for COMP 2406. The code represents a multiplayer (2 player) number guessing game",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "keywords": [],
+  "author": "Oluwadara Ogini",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "font-awesome": "^4.7.0",
+    "http": "^0.0.1-security",
+    "pug": "^3.0.2",
+    "socket.io": "^4.7.5",
+    "sqlite3": "^5.1.7",
+    "vue": "^3.4.21"
+  }
+}

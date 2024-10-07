@@ -1,0 +1,113 @@
+/* Set the base styles for the page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+/* Style the main application container */
+#app {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 590px;
+  height: 590px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Style the headings */
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Style the input fields */
+input {
+  width: 96.5%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the buttons */
+button {
+  width: 100%;
+  padding: 0.7rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Style the admin button */
+button.admin-button {
+  background-color: #edaa2f;
+}
+
+/* Style the error messages */
+.error {
+  color: #dc3545;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* Style the success messages */
+.success {
+  color: #28a745;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* Style the "Logged in as" text */
+.logged-in-as {
+  color: #007bff;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Style the weather and time container */
+#weather-time-container {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 1.05rem;
+  text-align: right;
+}
+
+#weather-time-container p {
+  margin: 0;
+}
+
+/* Style the admin panel table */
+#admin-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#admin-container th {
+  padding: 0.8rem;
+  text-align: left;
+  background-color: #f2f2f2;
+}
+
+#admin-container td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #ddd;
+}

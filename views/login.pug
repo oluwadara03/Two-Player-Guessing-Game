@@ -1,0 +1,40 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Guessing Game
+    link(rel="stylesheet", href="style.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css")
+  body
+    #app
+      #login-container(v-if="currentPage === 'login'")
+        h1 Login - Returning User
+        input(type="text", v-model="username", placeholder="Username")
+        input(type="password", v-model="password", placeholder="Password")
+        button(@click="login") Login
+        p.error(v-if="loginError") {{ loginError }}
+        p.success(v-if="loginMessage") {{ loginMessage }}
+        button(@click="switchToRegister") Switch to Register
+        div(v-if="showAdminLogin")
+          h2 Admin Login
+          input(type="password", v-model="adminPassword", placeholder="Password")
+          button(@click="loginAsAdmin") Login
+          p.error(v-if="adminLoginError") {{ adminLoginError }}
+        button.admin-button(@click="toggleAdminLogin") Admin User
+
+      #waiting-container(v-if="currentPage === 'waiting'")
+        h1 Waiting for another user...
+        h2.logged-in-as Logged in as: {{ username }}
+
+      #weather-time-container
+        p#city {{ city }}
+        p#weather-icon-description
+          i(:class="weatherIcon") {{ weatherDescription }}
+        p#weather {{ weatherCelsius }}°C
+        p#time {{ formattedTime }}
+        p#date {{ formattedDate }}
+
+    script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
+    script(src="/socket.io/socket.io.js")
+    script(src="script.js")
