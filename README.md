@@ -19,4 +19,3 @@ TESTING INSTRUCTIONS (URL): To test the code, once you have launched the code wi
 - Playing the game - You can play the game if there are two different browers/devices logged into the application. Guess a number between 1 and 50 and see if you win!
 
 NOTE: I have left my usernames and passwords on the database, feel free to delete the file and restart or use them to login and play.
-bGxv_Y
